@@ -1,0 +1,62 @@
+<div
+  class="h-full cursor-pointer rounded-sm bg-primary-lighter opacity-90 shadow-2xl transition-all ease-linear hover:opacity-100">
+  <div class="relative">
+    <img class="rounded-t-sm" width="999" height="999" priority [alt]="post().title" [ngSrc]="post().image" />
+
+    <div class="absolute right-4 top-4 rounded bg-accent px-2 py-1">
+      <p class="text-xs font-semibold uppercase text-primary-lighter">
+        {{ postType() === 'trip' ? 'Trip' : postType() === 'post' ? 'Post' : 'Recenzja' }}
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-flow-row p-4 text-accent">
+    <div class="mb-3 flex text-accent-darker">
+      <p class="text-xs">{{ post().date }}</p>
+    </div>
+
+    <h3 class="mb-5 text-lg font-bold">{{ post().title }}</h3>
+
+    @switch (postType()) {
+      @case ('trip') {
+        <div class="flex flex-wrap justify-around gap-2">
+          <div>
+            <h4 class="pb-1 text-sm">Czas</h4>
+            <p class="text-xs uppercase text-warn">{{ post().time }}</p>
+          </div>
+
+          <div>
+            <h4 class="pb-1 text-sm">Dystans</h4>
+            <p class="text-xs uppercase text-warn">{{ post().distance }}</p>
+          </div>
+
+          <div>
+            <h4 class="pb-1 text-sm">Poziom trudności</h4>
+            <p class="text-xs uppercase text-warn">{{ post().level }}</p>
+          </div>
+        </div>
+      }
+      @case ('post') {
+        <p class="line-clamp-3 text-justify text-sm">{{ post().text }}</p>
+      }
+      @case ('review') {
+        <div class="flex flex-wrap justify-around gap-2">
+          <div>
+            <h4 class="pb-1 text-sm">Produkty</h4>
+            <p class="text-xs uppercase text-warn">{{ post().product }}</p>
+          </div>
+
+          <div>
+            <h4 class="pb-1 text-sm">Marka</h4>
+            <p class="text-xs uppercase text-warn">{{ post().mark }}</p>
+          </div>
+
+          <div>
+            <h4 class="pb-1 text-sm">Model</h4>
+            <p class="text-xs uppercase text-warn">{{ post().model }}</p>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

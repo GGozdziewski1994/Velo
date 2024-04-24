@@ -1,0 +1,26 @@
+// Settings
+@use 'styles/settings/material-theme' as matSettings;
+
+// Tools
+@use '@angular/material' as mat;
+
+// Generic
+@forward 'styles/generic/scrollbar';
+@forward 'styles/generic/typography';
+
+// Objects
+@include mat.core();
+
+//Components
+@include mat.all-component-themes(matSettings.$theme);
+
+//Tailwind
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+.login-button {
+  &.mat-mdc-unelevated-button {
+    @apply rounded-full #{!important};
+  }
+}

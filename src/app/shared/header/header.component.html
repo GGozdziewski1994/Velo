@@ -1,0 +1,39 @@
+<header class="sticky top-0 z-10 flex min-h-[65px] bg-accent-lighter text-primary shadow-lg">
+  <div class="mx-auto flex w-full max-w-screen-hd items-center justify-between gap-4 px-8">
+    <a class="cursor-pointer text-xl font-bold capitalize" routerLink="dashboard">Velo trip</a>
+
+    <nav class="max-sm:hidden">
+      <ul class="flex items-center gap-6 opacity-75">
+        @for (nav of navItems; track nav) {
+          <li>
+            <a
+              class="border-b border-transparent"
+              routerLinkActive="opacity-100 border-primary"
+              [routerLink]="nav.link">
+              {{ nav.title }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="hidden max-sm:block">
+      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu">
+        @for (nav of navItems; track nav) {
+          <a
+            mat-menu-item
+            class="border-b border-transparent"
+            routerLinkActive="opacity-100 border-primary"
+            [routerLink]="nav.link">
+            {{ nav.title }}
+          </a>
+        }
+      </mat-menu>
+    </div>
+
+    <div>
+      <button class="login-button" mat-flat-button color="accent">Zaloguj się</button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,88 @@
+:root {
+  --primary-50: #ebeef6;
+  --primary-100: #cdd5e1;
+  --primary-200: #b0b9c9;
+  --primary-300: #929eb2;
+  --primary-400: #7b89a0;
+  --primary-500: #65758e;
+  --primary-600: #57677d;
+  --primary-700: #465367;
+  --primary-800: #374151;
+  --primary-900: #252d3a;
+
+  --accent-50: #f9fafb;
+  --accent-100: #f4f5f6;
+  --accent-200: #edeeef;
+  --accent-300: #dfe0e1;
+  --accent-400: #bcbdbe;
+  --accent-500: #9d9e9f;
+  --accent-600: #747576;
+  --accent-700: #606162;
+  --accent-800: #414243;
+  --accent-900: #202122;
+
+  --warn-50: #f4fde5;
+  --warn-100: #e4f9bf;
+  --warn-200: #d1f693;
+  --warn-300: #bef264;
+  --warn-400: #afee3a;
+  --warn-500: #a5ea00;
+  --warn-600: #9bd700;
+  --warn-700: #8ec000;
+  --warn-800: #82a800;
+  --warn-900: #6e8100;
+}
+
+$primary-palette: (
+  50: var(--primary-50),
+  100: var(--primary-100),
+  200: var(--primary-200),
+  300: var(--primary-300),
+  400: var(--primary-400),
+  500: var(--primary-500),
+  600: var(--primary-600),
+  700: var(--primary-700),
+  800: var(--primary-800),
+  900: var(--primary-900),
+  contrast: (
+    800: var(--primary-100),
+    600: var(--primary-100),
+    900: var(--primary-100),
+  ),
+);
+
+$accent-palette: (
+  50: var(--accent-50),
+  100: var(--accent-100),
+  200: var(--accent-200),
+  300: var(--accent-300),
+  400: var(--accent-400),
+  500: var(--accent-500),
+  600: var(--accent-600),
+  700: var(--accent-700),
+  800: var(--accent-800),
+  900: var(--accent-900),
+  contrast: (
+    50: var(--accent-900),
+    200: var(--accent-900),
+    400: var(--accent-900),
+  ),
+);
+
+$warn-palette: (
+  50: var(--warn-50),
+  100: var(--warn-100),
+  200: var(--warn-200),
+  300: var(--warn-300),
+  400: var(--warn-400),
+  500: var(--warn-500),
+  600: var(--warn-600),
+  700: var(--warn-700),
+  800: var(--warn-800),
+  900: var(--warn-900),
+  contrast: (
+    200: #030712,
+    300: #030712,
+    500: #030712,
+  ),
+);

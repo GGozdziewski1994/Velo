@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(material-icons.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:
+    local('Material Icons Outlined'),
+    local('MaterialIcons-Outlined'),
+    url(material-icons-outlined.otf) format('opentype');
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}

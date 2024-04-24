@@ -1,0 +1,50 @@
+<section class="relative z-0 h-[calc(100vh-65px)] bg-bike bg-cover bg-center">
+  <div class="mx-auto max-w-screen-hd px-8 pt-32 uppercase text-primary">
+    <h2 class="mb-2 text-xl">Moja pasja</h2>
+    <h2 class="text-3xl">To jazda na rowerze</h2>
+  </div>
+</section>
+
+<section class="mx-auto flex max-w-screen-hd flex-col gap-10 px-8 py-20 text-primary">
+  <div>
+    <h2 class="mb-8 text-3xl font-bold uppercase">Najnowsze wpisy</h2>
+
+    <div class="grid grid-cols-4 gap-5 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+      @for (post of posts; track post) {
+        <app-post-item [postType]="post.type" [post]="post" />
+      }
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <button mat-raised-button color="accent">
+        <a routerLink="blog">Więcej</a>
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="mb-8 text-3xl font-bold uppercase">O mnie</h2>
+
+    <div class="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
+      <div>
+        <img
+          ngSrc="https://images.pexels.com/photos/163491/bike-mountain-mountain-biking-trail-163491.jpeg"
+          width="999"
+          height="999"
+          priority
+          alt="Moje zdjęcie z rowerem" />
+      </div>
+
+      <div class="px-3 max-sm:mt-3 max-sm:px-0">
+        <p class="text-justify">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
