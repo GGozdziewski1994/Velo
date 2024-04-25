@@ -1,7 +1,13 @@
-<app-header />
+<div class="flex min-h-screen flex-col">
+  <div class="sticky top-0 z-50">
+    <app-header />
+  </div>
 
-<main class="bg-accent-lighter">
-  <router-outlet />
-</main>
+  <main class="bg-accent-lighter">
+    <div class="mx-auto max-w-screen-hd px-8">
+      <router-outlet />
+    </div>
+  </main>
 
-<app-footer />
+  <app-footer class="mt-auto" />
+</div>

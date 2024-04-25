@@ -1,59 +1,27 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PostItemComponent } from '@components/';
-import { Post } from '@models/';
+
+import { posts } from '../../shared/configs/posts-draft.config';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [PostItemComponent, MatButton, NgOptimizedImage, RouterLink],
+  imports: [PostItemComponent, MatButton, NgOptimizedImage],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {
-  post: Post = {
-    type: 'post',
-    title: 'Propozycje ciekawych tras w Wielkopolsce',
-    image:
-      'https://media.istockphoto.com/id/1127615814/pl/zdj%C4%99cie/planowanie-trasy-rowerowej.jpg?s=2048x2048&w=is&k=20&c=7jwXsy0eJPZbuv_idl0BQV-BE889grETRMUPkniI7Nw=',
-    date: '23 kwietnia 2024',
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  };
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
-  post2: Post = {
-    type: 'post',
-    title: 'Co nowego czeka w 2024 roku',
-    image:
-      'https://media.istockphoto.com/id/1127615814/pl/zdj%C4%99cie/planowanie-trasy-rowerowej.jpg?s=2048x2048&w=is&k=20&c=7jwXsy0eJPZbuv_idl0BQV-BE889grETRMUPkniI7Nw=',
-    date: '22 kwietnia 2024',
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  };
+  protected posts = posts;
 
-  trip: Post = {
-    type: 'trip',
-    title: 'Trasa Jezior w Szwajcari',
-    image:
-      'https://media.istockphoto.com/id/1402134774/pl/zdj%C4%99cie/profesjonalny-kolarz-szosowy-na-przeja%C5%BCd%C5%BCce-treningowej.jpg?s=2048x2048&w=is&k=20&c=yqicvnw7kHJUM3wRvXyAgHjJCsSO9zNP3z9uv_HwQMA=',
-    date: '21 kwietnia 2024',
-    time: '5 dni',
-    distance: '550',
-    level: 'średni',
-  };
-
-  review: Post = {
-    type: 'review',
-    title: 'Test długo i krótkodystansowy',
-    image:
-      'https://media.istockphoto.com/id/1402134796/pl/zdj%C4%99cie/sylwetka-rowerzysty-o-zachodzie-s%C5%82o%C5%84ca.jpg?s=2048x2048&w=is&k=20&c=6ZGAo5IymMQ2ddWpnAz2x2ue94H1vGp2SuhY6Eo4mtc=',
-    date: '19 kwietnia 2024',
-    product: 'Rower',
-    mark: 'Focus',
-    model: 'FX 2',
-  };
-
-  protected posts: Post[] = [this.post, this.review, this.trip, this.post2];
+  goToBlog(): void {
+    this.router.navigate(['../blog'], { relativeTo: this.route });
+  }
 }

@@ -5,6 +5,10 @@ export interface NavbarItem {
 
 export const menuNavItems: NavbarItem[] = [
   {
+    link: 'dashboard',
+    title: 'Strona główna',
+  },
+  {
     link: 'blog',
     title: 'Blog',
   },

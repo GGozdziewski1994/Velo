@@ -1,24 +1,23 @@
-<section class="relative z-0 h-[calc(100vh-65px)] bg-bike bg-cover bg-center">
+<section
+  class="relative z-0 ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] h-[calc(100vh-65px)] w-[calc(100vw-4px)] bg-bike bg-cover bg-center">
   <div class="mx-auto max-w-screen-hd px-8 pt-32 uppercase text-primary">
     <h2 class="mb-2 text-xl">Moja pasja</h2>
     <h2 class="text-3xl">To jazda na rowerze</h2>
   </div>
 </section>
 
-<section class="mx-auto flex max-w-screen-hd flex-col gap-10 px-8 py-20 text-primary">
+<section class="flex flex-col gap-10 py-20 text-primary">
   <div>
     <h2 class="mb-8 text-3xl font-bold uppercase">Najnowsze wpisy</h2>
 
-    <div class="grid grid-cols-4 gap-5 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+    <div class="grid grid-cols-4 gap-7 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
       @for (post of posts; track post) {
         <app-post-item [postType]="post.type" [post]="post" />
       }
     </div>
 
     <div class="mt-8 flex justify-center">
-      <button mat-raised-button color="accent">
-        <a routerLink="blog">Więcej</a>
-      </button>
+      <button mat-raised-button color="accent" (click)="goToBlog()">Więcej</button>
     </div>
   </div>
 

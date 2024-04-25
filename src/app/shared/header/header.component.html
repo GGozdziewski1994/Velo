@@ -1,14 +1,15 @@
-<header class="sticky top-0 z-10 flex min-h-[65px] bg-accent-lighter text-primary shadow-lg">
+<header class="flex min-h-[65px] w-full bg-accent-lighter text-primary shadow-lg">
   <div class="mx-auto flex w-full max-w-screen-hd items-center justify-between gap-4 px-8">
     <a class="cursor-pointer text-xl font-bold capitalize" routerLink="dashboard">Velo trip</a>
 
-    <nav class="max-sm:hidden">
-      <ul class="flex items-center gap-6 opacity-75">
+    <nav class="max-md:hidden">
+      <ul class="flex items-center gap-6">
         @for (nav of navItems; track nav) {
           <li>
             <a
-              class="border-b border-transparent"
-              routerLinkActive="opacity-100 border-primary"
+              class="border-b border-transparent pb-1 opacity-75 hover:opacity-95"
+              routerLinkActive="!border-primary !opacity-100"
+              [routerLinkActiveOptions]="{ exact: true }"
               [routerLink]="nav.link">
               {{ nav.title }}
             </a>
@@ -17,7 +18,7 @@
       </ul>
     </nav>
 
-    <div class="hidden max-sm:block">
+    <div class="hidden max-md:block">
       <button mat-button [matMenuTriggerFor]="menu">Menu</button>
       <mat-menu #menu="matMenu">
         @for (nav of navItems; track nav) {
