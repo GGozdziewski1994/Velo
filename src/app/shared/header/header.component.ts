@@ -4,7 +4,7 @@ import { MatButton } from '@angular/material/button';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { menuNavItems } from '@shared/';
+import { menuNavItems } from '@shared/configs';
 
 @Component({
   selector: 'app-header',

@@ -3,9 +3,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PostContainerComponent } from '@components/';
-
-import { posts } from '../../shared/configs/posts-draft.config';
+import { PostContainerComponent } from '@components/post-container/post-container.component';
+import { posts } from '@shared/configs';
 
 @Component({
   selector: 'app-dashboard',

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { footerItemLinks, menuNavItems } from '@shared/';
+import { footerItemLinks, menuNavItems } from '@shared/configs';
 
 @Component({
   selector: 'app-footer',

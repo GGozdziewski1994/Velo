@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostContainerComponent } from './post-container.component';
 
-describe('BlogItemComponent', () => {
+describe('PostContainerComponent', () => {
   let component: PostContainerComponent;
   let fixture: ComponentFixture<PostContainerComponent>;
 

@@ -1,9 +1,8 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import { PostContainerComponent } from '@components/';
-
-import { posts } from '../../shared/configs/posts-draft.config';
+import { PostContainerComponent } from '@components/post-container/post-container.component';
+import { posts } from '@shared/configs';
 
 @Component({
   selector: 'app-blog',

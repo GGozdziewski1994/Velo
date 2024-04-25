@@ -1,7 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-import { Post } from '@models/';
+import { Post } from '@models/post.interface';
 
 @Component({
   selector: 'app-post-container',

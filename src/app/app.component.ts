@@ -3,7 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 
-import { iconsSvg } from '@shared/';
+import { iconsSvg } from '@shared/icons';
 
 @Component({
   selector: 'app-root',
