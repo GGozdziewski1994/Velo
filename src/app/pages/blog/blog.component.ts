@@ -1,14 +1,14 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import { PostItemComponent } from '@components/';
+import { PostContainerComponent } from '@components/';
 
 import { posts } from '../../shared/configs/posts-draft.config';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [PostItemComponent, NgClass],
+  imports: [PostContainerComponent, NgClass],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

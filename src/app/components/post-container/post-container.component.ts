@@ -4,14 +4,14 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Post } from '@models/';
 
 @Component({
-  selector: 'app-post-item',
+  selector: 'app-post-container',
   standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: './post-item.component.html',
-  styleUrl: './post-item.component.scss',
+  templateUrl: './post-container.component.html',
+  styleUrl: './post-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostItemComponent {
+export class PostContainerComponent {
   postType = input<'trip' | 'post' | 'review'>('trip');
   post = input.required<Post>();
 }

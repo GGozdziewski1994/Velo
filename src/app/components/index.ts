@@ -1,1 +1,1 @@
-export * from './post-item/post-item.component';
+export * from './post-container/post-container.component';
