@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-routes',
+  selector: 'app-bikeRoutes',
   standalone: true,
   imports: [],
-  templateUrl: './routes.component.html',
-  styleUrl: './routes.component.scss',
+  templateUrl: './bikeRoutes.component.html',
+  styleUrl: './bikeRoutes.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RoutesComponent {}
+export class BikeRoutesComponent {}

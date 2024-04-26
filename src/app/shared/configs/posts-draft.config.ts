@@ -1,7 +1,8 @@
-import { Post } from '../../models/post.interface';
+import { Post } from '@models/post.interface';
 
 export const posts: Post[] = [
   {
+    id: 'post1',
     type: 'post',
     title: 'Propozycje ciekawych tras w Wielkopolsce',
     image:
@@ -10,6 +11,7 @@ export const posts: Post[] = [
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
+    id: 'post2',
     type: 'trip',
     title: 'Trasa Jezior w Szwajcari',
     image:
@@ -20,6 +22,7 @@ export const posts: Post[] = [
     level: 'średni',
   },
   {
+    id: 'post3',
     type: 'review',
     title: 'Test długo i krótkodystansowy',
     image:
@@ -30,6 +33,7 @@ export const posts: Post[] = [
     model: 'FX 2',
   },
   {
+    id: 'post4',
     type: 'post',
     title: 'Co nowego czeka w 2024 roku',
     image:

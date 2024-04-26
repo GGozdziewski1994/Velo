@@ -1,4 +1,5 @@
 export interface Post {
+  id: string;
   type: 'trip' | 'post' | 'review';
   title: string;
   image: string;

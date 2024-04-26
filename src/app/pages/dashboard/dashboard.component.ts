@@ -23,4 +23,8 @@ export class DashboardComponent {
   goToBlog(): void {
     this.router.navigate(['../blog'], { relativeTo: this.route });
   }
+
+  goToBlogItem(id: string): void {
+    this.router.navigate(['../blog', id], { relativeTo: this.route });
+  }
 }

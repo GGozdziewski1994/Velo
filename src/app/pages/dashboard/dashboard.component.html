@@ -12,7 +12,9 @@
 
     <div class="grid grid-cols-4 gap-7 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
       @for (post of posts; track post) {
-        <app-post-container [postType]="post.type" [post]="post" />
+        <a class="cursor-pointer" (click)="goToBlogItem(post.id)">
+          <app-post-container [postType]="post.type" [post]="post" />
+        </a>
       }
     </div>
 

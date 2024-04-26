@@ -14,23 +14,23 @@ export const shellRoutes: Routes = [
       },
       {
         path: 'dashboard',
-        loadComponent: () => import('@pages/dashboard/dashboard.component').then(c => c.DashboardComponent),
+        loadChildren: () => import('@pages/dashboard/dashboard.routes').then(r => r.dashboardRoutes),
       },
       {
         path: 'blog',
-        loadComponent: () => import('@pages/blog/blog.component').then(c => c.BlogComponent),
+        loadChildren: () => import('@pages/blog/blog.routes').then(r => r.blogRoutes),
       },
       {
         path: 'trasy',
-        loadComponent: () => import('@pages/routes/routes.component').then(c => c.RoutesComponent),
+        loadChildren: () => import('@pages/bikeRoutes/bikeRoutes.routes').then(r => r.bikeRoutesRoutes),
       },
       {
         path: 'wydarzenia',
-        loadComponent: () => import('@pages/events/events.component').then(c => c.EventsComponent),
+        loadChildren: () => import('@pages/events/events.routes').then(r => r.eventsRoutes),
       },
       {
         path: 'forum',
-        loadComponent: () => import('@pages/forum/forum.component').then(c => c.ForumComponent),
+        loadChildren: () => import('@pages/forum/forum.routes').then(r => r.forumRoutes),
       },
     ],
   },
