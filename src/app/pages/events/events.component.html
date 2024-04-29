@@ -1,1 +1,52 @@
-<p>events works!</p>
+<div class="py-10">
+  <h2 class="text-blacks mb-3 text-center text-3xl font-bold uppercase">{{ currentMonthName }} {{ currentYear }}</h2>
+
+  <div class="mb-7 flex items-center justify-between">
+    <button color="primary" mat-raised-button (click)="previousMonth()">Poprzedni</button>
+
+    <button color="primary" mat-raised-button (click)="goToCurrentMonth()">Aktualny miesiąc</button>
+
+    <button color="primary" mat-raised-button (click)="nextMonth()">Następny</button>
+  </div>
+
+  @if (vm$ | async; as vm) {
+    <div class="mb-3 grid grid-cols-7 bg-primary py-3 text-warn">
+      @for (day of vm.days; track day) {
+        <p class="gap-2 text-center">{{ day }}</p>
+      }
+    </div>
+
+    <div class="grid-rows grid gap-2">
+      @for (week of vm.calendarData; track week) {
+        <div class="grid grid-cols-7 gap-2">
+          @for (day of week; track day) {
+            <ng-container *ngTemplateOutlet="day.event?.linkPage ? linkTemplate : defaultTemplate; context: { day }" />
+          }
+        </div>
+      }
+    </div>
+  }
+</div>
+
+<ng-template #linkTemplate let-day="day">
+  <a target="_blank" [href]="day.event?.linkPage">
+    <ng-container *ngTemplateOutlet="defaultTemplate; context: { day }" />
+  </a>
+</ng-template>
+
+<ng-template #defaultTemplate let-day="day">
+  <div
+    class="rounded border border-solid border-accent-darker bg-cover bg-center p-2 py-6 text-center transition-all ease-linear"
+    [ngStyle]="{ 'background-image': 'url(' + day.event?.image + ')' }"
+    [ngClass]="[
+      day.event?.image ? 'bg-primary-lighter text-warn' : '',
+      day.isToday && day.month === currentMonth ? 'bg-warn-lighter' : '',
+      day.month === currentMonth
+        ? day.isWeekend
+          ? 'cursor-pointer bg-accent hover:bg-accent-darker'
+          : 'cursor-pointer hover:bg-warn'
+        : 'text-accent-darker'
+    ]">
+    <p>{{ day.day }}</p>
+  </div>
+</ng-template>
