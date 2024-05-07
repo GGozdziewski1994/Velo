@@ -1,0 +1,50 @@
+<div class="grid grid-cols-5 max-md:grid-cols-1 md:gap-10">
+  <div class="flex flex-col max-md:pt-3 md:border-r-2 md:py-14">
+    <div class="sticky top-32">
+      @if (iconItems()?.length) {
+        <div class="flex border-b py-6 max-md:py-2 md:flex-col">
+          @for (item of iconItems(); track item) {
+            <a
+              class="flex cursor-pointer gap-2 p-2 transition-all ease-linear"
+              [ngClass]="[selectedItem() === item.type ? 'bg-accent' : 'hover:text-warn md:hover:ml-2']"
+              (click)="selectedItem.set(item.type)">
+              <mat-icon fontIcon="{{ item.icon }}" />
+              {{ item.label }}
+            </a>
+          }
+        </div>
+      }
+
+      @if (dotItems()?.length) {
+        <div class="flex py-6 max-md:py-2 md:flex-col">
+          @for (dotItem of dotItems(); track dotItem) {
+            <a
+              class="flex cursor-pointer items-center gap-2 p-2 transition-all ease-linear"
+              [ngClass]="[selectedItem() === dotItem.type ? 'bg-accent' : 'hover:text-warn md:hover:ml-2']"
+              (click)="selectedItem.set(dotItem.type)">
+              <div class="h-3 w-3 rounded-full" [ngStyle]="{ 'background-color': dotItem.dotBackground }"></div>
+              {{ dotItem.label }}
+            </a>
+          }
+        </div>
+      }
+
+      @if (basicItems()?.length) {
+        <div class="flex py-6 max-md:py-2 md:flex-col">
+          @for (basicItem of basicItems(); track basicItem) {
+            <a
+              class="cursor-pointer p-2 transition-all ease-linear"
+              [ngClass]="[selectedItem() === basicItem.type ? 'bg-accent' : 'hover:text-warn md:hover:ml-2']"
+              (click)="selectedItem.set(basicItem.type)">
+              {{ basicItem.label }}
+            </a>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="col-span-4 py-10 md:py-20">
+    <ng-content />
+  </div>
+</div>

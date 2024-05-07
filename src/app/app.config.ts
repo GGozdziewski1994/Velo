@@ -1,4 +1,6 @@
+import { registerLocaleData } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
+import localePl from '@angular/common/locales/pl';
 import { ApplicationConfig, InjectionToken, LOCALE_ID } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
@@ -12,6 +14,8 @@ import { Effects } from './store/effects';
 import { reducerFeature } from './store/reducer';
 
 export const API_URL = new InjectionToken<string>('API_URL');
+
+registerLocaleData(localePl);
 
 export const appConfig: ApplicationConfig = {
   providers: [

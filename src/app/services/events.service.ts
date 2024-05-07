@@ -28,6 +28,6 @@ export class EventsService {
 
     const index = fakeData.findIndex(data => data.month === month);
 
-    return of({ events: fakeData[index].events });
+    return of({ events: index !== -1 ? fakeData[index].events : [] });
   }
 }
