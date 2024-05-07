@@ -6,7 +6,7 @@
   } @else {
     <div class="cursor-pointer" (mouseleave)="resetStars()">
       @for (star of stars; track star; let i = $index) {
-        <span (mouseenter)="highlightStars(i)" (click)="rate.emit(i + 1)">
+        <span (mouseenter)="highlightStars(i)" (click)="userRating.set(i + 1)">
           <ng-container *ngTemplateOutlet="ratingIcons; context: { star }" />
         </span>
       }

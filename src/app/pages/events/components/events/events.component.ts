@@ -4,13 +4,13 @@ import { MatButton } from '@angular/material/button';
 import { Store } from '@ngrx/store';
 import { DateTime, Interval, MonthNumbers } from 'luxon';
 
-import { eventsActions } from '../../store/actions';
-import { selectVmForCalendar } from '../../store/selectors';
+import { storeAppActions } from '@store/actions';
+import { selectVmForCalendar } from '@store/selectors';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [MatButton, NgClass, AsyncPipe, NgStyle, NgTemplateOutlet],
+  imports: [NgTemplateOutlet, NgStyle, NgClass, MatButton, AsyncPipe],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +26,7 @@ export class EventsComponent implements OnInit {
   currentMonthName = this.now.monthLong;
 
   ngOnInit(): void {
-    this.#store.dispatch(eventsActions.getEvents({ month: this.currentMonth, year: this.currentYear }));
+    this.#store.dispatch(storeAppActions.getEvents({ month: this.currentMonth, year: this.currentYear }));
 
     this.generateCalendar(this.now);
   }
@@ -47,7 +47,7 @@ export class EventsComponent implements OnInit {
       weeks.push(intervalWeek);
     }
 
-    this.#store.dispatch(eventsActions.setCalendarDays({ weeks }));
+    this.#store.dispatch(storeAppActions.setCalendarDays({ weeks }));
   }
 
   goToCurrentMonth(): void {
@@ -71,7 +71,7 @@ export class EventsComponent implements OnInit {
     this.currentMonth = dateTime.month as MonthNumbers;
     this.currentMonthName = dateTime.monthLong!;
 
-    this.#store.dispatch(eventsActions.getEvents({ month: dateTime.month, year: dateTime.year }));
+    this.#store.dispatch(storeAppActions.getEvents({ month: dateTime.month, year: dateTime.year }));
 
     this.generateCalendar(dateTime);
   }

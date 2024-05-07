@@ -4,9 +4,9 @@ import { DateTime } from 'luxon';
 
 import { Events } from '@models/events.interface';
 
-import { eventsActions } from './actions';
+import { storeAppActions } from './actions';
 
-export const eventsFeatureKey = 'events';
+export const storeFeatureKey = 'store-feature-key';
 
 export interface State {
   calendarData: { events: Events[] };
@@ -28,26 +28,26 @@ export const initialState: State = {
 
 const reducer = createReducer(
   initialState,
-  on(eventsActions.getEvents, state => ({
+  on(storeAppActions.getEvents, state => ({
     ...state,
     isLoading: true,
   })),
   on(
-    eventsActions.getEventsSuccess,
+    storeAppActions.getEventsSuccess,
     (state, { events }): State => ({
       ...state,
       calendarData: { events },
       isLoading: false,
     })
   ),
-  on(eventsActions.getEventsFailure, (state, { error }) => ({
+  on(storeAppActions.getEventsFailure, (state, { error }) => ({
     ...state,
     error,
     isLoading: false,
   })),
 
   on(
-    eventsActions.setCalendarDays,
+    storeAppActions.setCalendarDays,
     (state, { weeks }): State => ({
       ...state,
       weeks,
@@ -56,6 +56,6 @@ const reducer = createReducer(
 );
 
 export const reducerFeature = createFeature({
-  name: eventsFeatureKey,
+  name: storeFeatureKey,
   reducer,
 });

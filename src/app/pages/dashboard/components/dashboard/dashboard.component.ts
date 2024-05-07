@@ -3,13 +3,13 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PostContainerComponent } from '@components/post-container/post-container.component';
+import { PostContainerComponent } from '@pages/blog/components/post-container/post-container.component';
 import { posts } from '@shared/configs';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [PostContainerComponent, MatButton, NgOptimizedImage],
+  imports: [MatButton, NgOptimizedImage, PostContainerComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

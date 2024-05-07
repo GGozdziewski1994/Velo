@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BikeRoutesComponent } from './bikeRoutes.component';
+import { ForumItemComponent } from './forum-item.component';
 
-describe('BikeRoutesComponent', () => {
-  let component: BikeRoutesComponent;
-  let fixture: ComponentFixture<BikeRoutesComponent>;
+describe('ForumItemComponent', () => {
+  let component: ForumItemComponent;
+  let fixture: ComponentFixture<ForumItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BikeRoutesComponent],
+      imports: [ForumItemComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BikeRoutesComponent);
+    fixture = TestBed.createComponent(ForumItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

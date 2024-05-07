@@ -1,0 +1,9 @@
+<h2 class="mb-8 text-center text-3xl font-bold uppercase">Wpisy</h2>
+
+<div class="grid grid-cols-3 gap-7 max-lg:grid-cols-2 max-sm:grid-cols-1">
+  @for (post of posts; track post) {
+    <a class="cursor-pointer" (click)="goToBlogItem(post.id)">
+      <app-post-container [postType]="post.type" [post]="post" />
+    </a>
+  }
+</div>

@@ -4,14 +4,13 @@ import localePl from '@angular/common/locales/pl';
 import { ApplicationConfig, InjectionToken, LOCALE_ID } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-import { provideEffects } from '@ngrx/effects';
+import { NavigationActionTiming, provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { provideState, provideStore } from '@ngrx/store';
 
 import { environment } from '@env/environments';
+import { routerReducerKey } from '@store/router-selectors';
 
 import { routes } from './app.routes';
-import { Effects } from './store/effects';
-import { reducerFeature } from './store/reducer';
 
 export const API_URL = new InjectionToken<string>('API_URL');
 
@@ -23,8 +22,10 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(),
     provideStore(),
-    provideState(reducerFeature),
-    provideEffects([Effects]),
+    provideState(routerReducerKey, routerReducer),
+    provideRouterStore({
+      navigationActionTiming: NavigationActionTiming.PostActivation,
+    }),
     { provide: API_URL, useValue: environment.API_URL },
     { provide: LOCALE_ID, useValue: 'pl-PL' },
   ],

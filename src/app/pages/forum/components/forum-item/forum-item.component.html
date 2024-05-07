@@ -1,0 +1,85 @@
+<div class="mx-auto max-w-container text-primary-darker">
+  <div class="flex flex-col gap-4">
+    <h2 class="text-lg font-bold">Trasa Poznań (Bułgarska) - Wielkopolski Park Narodowy (Puszczykowo)</h2>
+
+    <div class="flex gap-5">
+      <img
+        class="h-[50px] rounded-full"
+        ngSrc="https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA="
+        width="50"
+        height="50"
+        alt="logo" />
+
+      <div class="flex flex-col justify-center gap-px">
+        <p class="font-bold">Imię i nazwisko</p>
+        <p class="text-xs text-accent-darker">3 dni temu</p>
+      </div>
+
+      <div class="flex items-center gap-1 self-start rounded border-2 border-accent-darker bg-accent-lighter p-1">
+        <div class="h-2.5 w-2.5 rounded-full" [ngStyle]="{ 'background-color': '#3339FF' }"></div>
+        <span class="text-[10px] uppercase text-primary">Najlepsze trasy</span>
+      </div>
+    </div>
+
+    <p class="text-justify">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged.
+    </p>
+
+    <div class="mt-3 flex flex-col gap-px">
+      <p>Czy ten wpis był dla Ciebie przydatny?</p>
+      <app-start-rating [averageRating]="4" [ratingIsReadonly]="false" [(userRating)]="rating" />
+      <p class="text-xs">
+        Średnia <span class="font-bold">{{ 4 }}</span> na podstawie <span class="font-bold"> {{ 752 }}</span> ocen
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <h3 class="mb-5 font-bold">5 Komentarzy</h3>
+
+    <div class="flex flex-col gap-5">
+      @for (comment of [1, 1, 1, 1, 1]; track comment) {
+        <div class="flex gap-5">
+          <img
+            class="h-[50px] rounded-full"
+            ngSrc="https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA="
+            width="50"
+            height="50"
+            alt="logo" />
+
+          <div>
+            <p>
+              <span class="font-bold">Imię i nazwisko</span> Lorem Ipsum is simply dummy text of the printing and
+              typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </p>
+
+            <p class="text-xs text-accent-darker">2 dni temu</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="mt-10">
+    <div class="flex gap-5">
+      <img
+        class="h-[50px] rounded-full"
+        ngSrc="https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA="
+        width="50"
+        height="50"
+        alt="logo" />
+
+      <mat-form-field class="w-full">
+        <mat-label>Dodaj komentarz</mat-label>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="flex justify-end">
+      <button mat-raised-button color="primary">Dodaj</button>
+    </div>
+  </div>
+</div>

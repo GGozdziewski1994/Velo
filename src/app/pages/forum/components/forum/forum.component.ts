@@ -1,22 +1,10 @@
-import { DatePipe, NgClass, NgOptimizedImage, NgStyle } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Injector,
-  OnInit,
-  effect,
-  inject,
-  input,
-  model,
-  runInInjectionContext,
-  signal,
-} from '@angular/core';
+import { DatePipe, NgOptimizedImage, NgStyle } from '@angular/common';
+import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 
-import { MenuPanelComponent } from '@components/menu-panel';
 import { StartRatingComponent } from '@components/start-rating';
 import { TimeElapsedPipe } from '@shared/pipes';
 
@@ -24,40 +12,24 @@ import { TimeElapsedPipe } from '@shared/pipes';
   selector: 'app-forum',
   standalone: true,
   imports: [
-    NgClass,
-    MenuPanelComponent,
+    DatePipe,
     MatIcon,
     MatIconButton,
-    StartRatingComponent,
-    NgOptimizedImage,
+    MatMenu,
     NgStyle,
+    NgOptimizedImage,
     TimeElapsedPipe,
     MatTooltip,
-    DatePipe,
+    StartRatingComponent,
     MatMenuTrigger,
-    MatMenu,
     MatMenuItem,
   ],
   templateUrl: './forum.component.html',
   styleUrl: './forum.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ForumComponent implements OnInit {
-  #injector = inject(Injector);
-
-  protected selectType = signal<'all' | 'following' | string>('all');
-
-  protected iconsTypes = [
-    { label: 'Wszystkie wpisy', type: 'all', icon: 'forum' },
-    { label: 'Obserwowane', type: 'following', icon: 'star' },
-  ];
-
-  protected dotTypes = [
-    { label: 'Najlepsze trasy', type: 'routes', dotBackground: '#3339FF' },
-    { label: 'Wymiana hamulców', type: 'breaks', dotBackground: '#80FF33' },
-    { label: 'Dieta', type: 'diet', dotBackground: '#110A03' },
-    { label: 'Odzież', type: 'clothing', dotBackground: '#147E1C' },
-  ];
+export class ForumComponent {
+  protected rating = signal<number | null>(null);
 
   protected forumEntry = [
     {
@@ -88,15 +60,9 @@ export class ForumComponent implements OnInit {
     },
   ];
 
-  ngOnInit(): void {
-    runInInjectionContext(this.#injector, () => {
-      effect(() => {
-        console.log(this.selectType());
-      });
+  constructor() {
+    effect(() => {
+      console.log(this.rating());
     });
-  }
-
-  addRating(rate: number): void {
-    console.log(rate);
   }
 }

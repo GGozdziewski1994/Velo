@@ -4,7 +4,7 @@ import { catchError, map, of, switchMap } from 'rxjs';
 
 import { EventsService } from '@services/events.service';
 
-import { eventsActions } from './actions';
+import { storeAppActions } from './actions';
 
 @Injectable()
 export class Effects {
@@ -13,11 +13,11 @@ export class Effects {
 
   calendarData$ = createEffect(() =>
     this.#actions$.pipe(
-      ofType(eventsActions.getEvents),
+      ofType(storeAppActions.getEvents),
       switchMap(({ month, year }) =>
         this.#eventService.getCalendarData(month, year).pipe(
-          map(events => eventsActions.getEventsSuccess(events)),
-          catchError(error => of(eventsActions.getEventsFailure({ error })))
+          map(events => storeAppActions.getEventsSuccess(events)),
+          catchError(error => of(storeAppActions.getEventsFailure({ error })))
         )
       )
     )

@@ -4,8 +4,8 @@ import { DateTime } from 'luxon';
 
 import { Events } from '@models/events.interface';
 
-export const eventsActions = createActionGroup({
-  source: 'Events',
+export const storeAppActions = createActionGroup({
+  source: 'App',
   events: {
     'Get events': props<{ month: number; year: number }>(),
     'Get events success': props<{ events: Events[] }>(),

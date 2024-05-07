@@ -20,7 +20,7 @@
     "$ANGULAR_TWO_WAY_BINDING"
   ],
   "importOrderParserPlugins": ["typescript", "classProperties", "decorators-legacy"],
-  "importOrder": ["^(@components|@pages|@services|@models|@shared|@env)", "^[./]"],
+  "importOrder": ["^(@components|@pages|@services|@models|@shared|@env|@store)", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-organize-attributes", "prettier-plugin-tailwindcss"]

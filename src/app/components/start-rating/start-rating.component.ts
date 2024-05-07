@@ -1,5 +1,5 @@
 import { NgClass, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, input, model, output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
@@ -12,8 +12,8 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class StartRatingComponent implements OnInit {
   ratingIsReadonly = input<boolean>(true);
-  rating = input.required<number>();
-  rate = output<number>();
+  averageRating = input.required<number>();
+  userRating = model<number | null>();
 
   readonly #maxStars = 5;
   protected stars: string[] = [];
@@ -23,8 +23,9 @@ export class StartRatingComponent implements OnInit {
   }
 
   get initStars(): string[] {
-    const rest = this.rating() % 1;
-    const fullStars = rest >= 0.75 ? Math.ceil(this.rating()) : Math.floor(this.rating());
+    const rating = this.userRating() ?? this.averageRating();
+    const rest = rating % 1;
+    const fullStars = rest >= 0.75 ? Math.ceil(rating) : Math.floor(rating);
     const halfStar = rest >= 0.25 && rest < 0.75;
     const emptyStars = this.#maxStars - fullStars - (halfStar ? 1 : 0);
 

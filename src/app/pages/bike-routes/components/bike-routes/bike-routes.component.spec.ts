@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostItemComponent } from './post-item.component';
+import { BikeRoutesComponent } from './bike-routes.component';
 
-describe('PostItemComponent', () => {
-  let component: PostItemComponent;
-  let fixture: ComponentFixture<PostItemComponent>;
+describe('BikeRoutesComponent', () => {
+  let component: BikeRoutesComponent;
+  let fixture: ComponentFixture<BikeRoutesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PostItemComponent],
+      imports: [BikeRoutesComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PostItemComponent);
+    fixture = TestBed.createComponent(BikeRoutesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
