@@ -1,6 +1,6 @@
 <div class="grid grid-cols-5 max-md:grid-cols-1 md:gap-10">
   <div class="flex flex-col max-md:pt-3 md:border-r-2 md:py-14">
-    <div class="sticky top-32">
+    <div class="sticky top-[121px]">
       @if (iconItems()?.length) {
         <div class="flex border-b py-6 max-md:py-2 md:flex-col">
           @for (item of iconItems(); track item) {
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="col-span-4 py-10 md:py-20">
+  <div class="relative col-span-4 py-10 md:py-20">
     <ng-content />
   </div>
 </div>

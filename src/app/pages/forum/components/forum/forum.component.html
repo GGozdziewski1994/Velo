@@ -13,7 +13,9 @@
       </div>
 
       <div class="col-span-3">
-        <h3 class="font-bold">{{ entry.title }}</h3>
+        <a class="cursor-pointer" (click)="goToEntry(entry.entryId)">
+          <h3 class="font-bold">{{ entry.title }}</h3>
+        </a>
         <p class="text-xs text-accent-darker" matTooltip="{{ entry.createAt | date: 'medium' }}">
           {{ entry.createBy }} rozpoczął {{ entry.createAt | timeElapsed }} temu
         </p>
@@ -39,7 +41,7 @@
         </button>
 
         <mat-menu #menu>
-          <button mat-menu-item>Zobacz</button>
+          <button mat-menu-item (click)="goToEntry(entry.entryId)">Zobacz</button>
           @if (entry.isFallowing) {
             <button mat-menu-item>Usuń z obserwowanych</button>
           } @else {

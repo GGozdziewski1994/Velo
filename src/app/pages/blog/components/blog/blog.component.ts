@@ -19,6 +19,6 @@ export class BlogComponent {
   protected posts = [...posts, ...posts, ...posts, ...posts];
 
   goToBlogItem(id: string): void {
-    this.#router.navigate(['../blog', id], { relativeTo: this.#route });
+    this.#router.navigate([id], { relativeTo: this.#route });
   }
 }

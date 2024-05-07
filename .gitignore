@@ -44,3 +44,6 @@ Thumbs.db
 
 #Environments
 environments
+
+#Nx
+.nx/
