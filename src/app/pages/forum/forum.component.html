@@ -43,8 +43,7 @@
             <button mat-menu-item>Zobacz</button>
             @if (entry.isFallowing) {
               <button mat-menu-item>Usuń z obserwowanych</button>
-            }
-            @if (!entry.isFallowing) {
+            } @else {
               <button mat-menu-item>Obserwuj</button>
             }
           </mat-menu>
