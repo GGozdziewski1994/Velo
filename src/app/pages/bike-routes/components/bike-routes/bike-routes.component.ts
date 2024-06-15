@@ -10,13 +10,9 @@ import { provideComponentStore } from '@ngrx/component-store';
 import { BIKE_TYPE_OPTIONS_MAP } from '@map/bike-type-options.map';
 import { DISTANCE_OPTIONS_MAP } from '@map/distance-options.map';
 import { REGION_OPTIONS_MAP } from '@map/region-options.map';
-import {
-  bikeTypeSelectOptionsConfig,
-  distanceSelectOptionsConfig,
-  regionSelectOptionsConfig,
-} from '@pages/bike-routes/configs';
 import { ValueOf } from '@shared/types/value-of.type';
 
+import { bikeTypeSelectOptionsConfig, distanceSelectOptionsConfig, regionSelectOptionsConfig } from '../../configs';
 import { BikeRouteDetailsComponent } from '../bike-route-details/bike-route-details.component';
 import { BikeRoutesComponentStore } from './bike-routes.store';
 

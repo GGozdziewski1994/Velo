@@ -5,8 +5,8 @@ import { MatIcon } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { provideComponentStore } from '@ngrx/component-store';
 
-import { BikeRouteDetailsComponent } from '@pages/bike-routes/components/bike-route-details/bike-route-details.component';
-import { BikeRouteItemComponentStore } from '@pages/bike-routes/components/bike-route-item/bike-route-item.store';
+import { BikeRouteDetailsComponent } from '../bike-route-details/bike-route-details.component';
+import { BikeRouteItemComponentStore } from './bike-route-item.store';
 
 @Component({
   selector: 'app-bike-route-item',
