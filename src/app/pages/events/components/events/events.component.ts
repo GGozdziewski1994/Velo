@@ -19,15 +19,7 @@ export class EventsComponent {
 
   vm$ = this.#store.select(selectVmForCalendar);
 
-  goToCurrentMonth(): void {
-    this.#store.dispatch(storeAppActions.menageMonths({ key: 'current' }));
-  }
-
-  nextMonth(): void {
-    this.#store.dispatch(storeAppActions.menageMonths({ key: 'next' }));
-  }
-
-  previousMonth(): void {
-    this.#store.dispatch(storeAppActions.menageMonths({ key: 'prev' }));
+  menageMonths(key: 'next' | 'current' | 'prev'): void {
+    this.#store.dispatch(storeAppActions.menageMonths({ key }));
   }
 }
