@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { createActionGroup, props } from '@ngrx/store';
-import { DateTime } from 'luxon';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
 import { Events } from '@models/events.interface';
 
@@ -11,6 +10,10 @@ export const storeAppActions = createActionGroup({
     'Get events success': props<{ events: Events[] }>(),
     'Get events failure': props<{ error: HttpErrorResponse }>(),
 
-    'Set calendar days': props<{ weeks: DateTime[][] }>(),
+    'Set date time': props<{ selectedYear: number; selectedMonth: number }>(),
+
+    'Menage months': props<{ key: 'next' | 'prev' | 'current' }>(),
+
+    'empty action': emptyProps(),
   },
 });

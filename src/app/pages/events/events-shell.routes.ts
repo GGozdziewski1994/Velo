@@ -8,7 +8,7 @@ export const eventsShellRoutes: Routes = [
     component: EventsShellComponent,
     children: [
       {
-        path: '',
+        path: ':id',
         loadComponent: () => import('./components/events/events.component').then(c => c.EventsComponent),
       },
     ],

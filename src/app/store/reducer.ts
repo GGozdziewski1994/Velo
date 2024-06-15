@@ -10,9 +10,12 @@ export const storeFeatureKey = 'store-feature-key';
 
 export interface State {
   calendarData: { events: Events[] };
-  weeks: DateTime[][];
-  days: string[];
   isLoading: boolean;
+  selectedYear: number | null;
+  selectedMonth: number | null;
+  selectedDateTime: DateTime | null;
+  selectedMonthName: string | null;
+  isDateParamValid: boolean;
   error: HttpErrorResponse | null;
 }
 
@@ -20,8 +23,11 @@ export const initialState: State = {
   calendarData: {
     events: [],
   },
-  weeks: [],
-  days: ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'],
+  selectedYear: null,
+  selectedMonth: null,
+  selectedDateTime: null,
+  selectedMonthName: null,
+  isDateParamValid: false,
   isLoading: false,
   error: null,
 };
@@ -46,13 +52,18 @@ const reducer = createReducer(
     isLoading: false,
   })),
 
-  on(
-    storeAppActions.setCalendarDays,
-    (state, { weeks }): State => ({
+  on(storeAppActions.setDateTime, (state, { selectedYear, selectedMonth }): State => {
+    const dateTime = DateTime.local(selectedYear, selectedMonth);
+
+    return {
       ...state,
-      weeks,
-    })
-  )
+      selectedYear,
+      selectedMonth,
+      selectedDateTime: dateTime,
+      selectedMonthName: dateTime.monthLong,
+      isDateParamValid: dateTime.isValid,
+    };
+  })
 );
 
 export const reducerFeature = createFeature({

@@ -1,3 +1,5 @@
+import { MENU_PAYLOAD } from './menu-payload.config';
+
 export interface NavbarItem {
   link: string;
   title: string;
@@ -5,23 +7,23 @@ export interface NavbarItem {
 
 export const menuNavItems: NavbarItem[] = [
   {
-    link: 'dashboard',
+    link: MENU_PAYLOAD.DASHBOARD,
     title: 'Strona główna',
   },
   {
-    link: 'blog',
+    link: MENU_PAYLOAD.BLOG,
     title: 'Blog',
   },
   {
-    link: 'trasy',
+    link: MENU_PAYLOAD.BIKE_ROUTES,
     title: 'Trasy',
   },
   {
-    link: 'wydarzenia',
+    link: MENU_PAYLOAD.EVENTS,
     title: 'Wydarzenia',
   },
   {
-    link: 'forum',
+    link: MENU_PAYLOAD.FORUM,
     title: 'Forum',
   },
 ];
