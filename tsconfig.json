@@ -30,6 +30,7 @@
       "@services/*": ["./src/app/services/*"],
       "@pages/*": ["./src/app/pages/*"],
       "@store/*": ["./src/app/store/*"],
+      "@map/*": ["./src/app/map/*"],
     }
   },
   "angularCompilerOptions": {
