@@ -1,20 +1,27 @@
 import { Injectable, inject } from '@angular/core';
 import { ComponentStore, OnStoreInit } from '@ngrx/component-store';
+import { Store } from '@ngrx/store';
 import { EMPTY, catchError, switchMap, tap } from 'rxjs';
 
-import { BikeRoutesResponse } from '@models/bike-routes.interface';
+import { BikeRouteItemResponse } from '@models/bike-routes.interface';
 import { BikeRouteService } from '@services/bike-route.service';
+import { selectRouteParam } from '@store/router-selectors';
 
 @Injectable()
-export class BikeRoutesComponentStore extends ComponentStore<{ data: BikeRoutesResponse[] }> implements OnStoreInit {
+export class BikeRouteItemComponentStore
+  extends ComponentStore<{ data: BikeRouteItemResponse | null }>
+  implements OnStoreInit
+{
   #service = inject(BikeRouteService);
+  #store = inject(Store);
 
+  readonly idSignal = this.#store.selectSignal(selectRouteParam('id'));
   readonly dataSignal = this.selectSignal(state => state.data);
 
-  readonly getAllBikeRoutes = this.effect(trigger$ =>
+  readonly getBikeRouteItem = this.effect<string>(trigger$ =>
     trigger$.pipe(
-      switchMap(() =>
-        this.#service.getAllBikeRoutes().pipe(
+      switchMap(id =>
+        this.#service.getBikeRouteItem(id).pipe(
           tap({
             next: data => this.patchState({ data }),
             error: e => console.error(e),
@@ -26,10 +33,10 @@ export class BikeRoutesComponentStore extends ComponentStore<{ data: BikeRoutesR
   );
 
   ngrxOnStoreInit(): void {
-    this.getAllBikeRoutes();
+    this.getBikeRouteItem(this.idSignal() as string);
   }
 
   constructor() {
-    super({ data: [] });
+    super({ data: null });
   }
 }

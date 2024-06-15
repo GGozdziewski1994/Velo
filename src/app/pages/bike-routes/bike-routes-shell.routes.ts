@@ -12,6 +12,13 @@ export const bikeRoutesShellRoutes: Routes = [
         loadComponent: () =>
           import('@pages/bike-routes/components/bike-routes/bike-routes.component').then(c => c.BikeRoutesComponent),
       },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('@pages/bike-routes/components/bike-route-item/bike-route-item.component').then(
+            c => c.BikeRouteItemComponent
+          ),
+      },
     ],
   },
 ];

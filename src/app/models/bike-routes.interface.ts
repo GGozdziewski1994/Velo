@@ -5,6 +5,10 @@ export interface BikeRoutesResponse {
   details: BikeRouteDetailsResponse[];
 }
 
+export interface BikeRouteItemResponse extends BikeRoutesResponse {
+  description: BikeRouteItemDescription[];
+}
+
 export interface BikeRouteDetailsResponse {
   type: string;
   value: string | boolean;
@@ -19,4 +23,11 @@ export interface BikeRouteDetails extends BikeRouteDetailsResponse, BikeRouteDet
 
 export interface BikeRouteDetailsConfig extends BikeRouteDetailsBasic {
   type: string;
+}
+
+export interface BikeRouteItemDescription {
+  title?: string;
+  subtitle?: string;
+  description: string;
+  img?: string;
 }

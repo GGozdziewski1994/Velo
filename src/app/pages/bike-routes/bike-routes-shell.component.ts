@@ -5,7 +5,11 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-bike-routes-shell',
   standalone: true,
   imports: [RouterOutlet],
-  template: `<router-outlet />`,
+  template: `
+    <div class="mx-auto max-w-container py-10 text-primary-darker">
+      <router-outlet />
+    </div>
+  `,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

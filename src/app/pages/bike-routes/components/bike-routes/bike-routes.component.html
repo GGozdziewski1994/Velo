@@ -1,54 +1,54 @@
-<div class="mx-auto max-w-container py-10">
-  <div class="mb-5">
-    <h2 class="text-2xl font-bold">Trasy rowerowe w Polsce</h2>
-    <p>Zaplanuj swoją podróż</p>
-  </div>
+<div class="mb-5">
+  <h2 class="text-2xl font-bold">Trasy rowerowe w Polsce</h2>
+  <p>Zaplanuj swoją podróż</p>
+</div>
 
-  <form class="mb-2 flex gap-3" [formGroup]="form">
-    <mat-form-field>
-      <mat-label>Wybierz region</mat-label>
-      <mat-select multiple formControlName="region">
-        @for (region of regionSelect; track region) {
-          <mat-option [value]="region.value">{{ region.option }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+<form class="mb-2 flex gap-3" [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Wybierz region</mat-label>
+    <mat-select multiple formControlName="region">
+      @for (region of regionSelect; track region) {
+        <mat-option [value]="region.value">{{ region.option }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Wybierz rower</mat-label>
-      <mat-select multiple formControlName="bikeType">
-        @for (type of bikeType; track type) {
-          <mat-option [value]="type.value">{{ type.option }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Wybierz rower</mat-label>
+    <mat-select multiple formControlName="bikeType">
+      @for (type of bikeType; track type) {
+        <mat-option [value]="type.value">{{ type.option }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Wybierz dystans</mat-label>
-      <mat-select formControlName="distance">
-        <mat-option>-</mat-option>
-        @for (distance of distanceSelect; track distance) {
-          <mat-option [value]="distance.value">{{ distance.option }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Wybierz dystans</mat-label>
+    <mat-select formControlName="distance">
+      <mat-option>-</mat-option>
+      @for (distance of distanceSelect; track distance) {
+        <mat-option [value]="distance.value">{{ distance.option }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-    <button type="button" class="mt-2.5" color="primary" mat-raised-button (click)="filter()">Szukaj</button>
-  </form>
+  <button type="button" class="mt-2.5" color="primary" mat-raised-button (click)="filter()">Szukaj</button>
+</form>
 
-  <div class="flex flex-col gap-5">
-    @for (route of bikeRoutes(); track route.id) {
-      <div class="flex gap-5 rounded-md border border-accent-darker p-8 shadow-sm">
-        <div class="justify-self-center">
-          <img class="h-[200px] max-w-[200px]" width="999" height="999" alt="route" priority [ngSrc]="route.map" />
-        </div>
-
-        <div class="w-full">
-          <h3 class="mb-3 text-xl font-bold">{{ route.title }}</h3>
-
-          <app-bike-route-details [details]="route.details" />
-        </div>
+<div class="flex flex-col gap-5">
+  @for (route of bikeRoutes(); track route.id) {
+    <div class="flex gap-5 rounded-md border border-accent-darker p-8 shadow-sm">
+      <div class="justify-self-center">
+        <img class="h-[200px] max-w-[200px]" width="999" height="999" alt="route" priority [ngSrc]="route.map" />
       </div>
-    }
-  </div>
+
+      <div class="w-full">
+        <a class="cursor-pointer" (click)="goToItem(route.id)">
+          <h3 class="mb-3 text-xl font-bold">{{ route.title }}</h3>
+        </a>
+
+        <app-bike-route-details panelClass="grid grid-cols-4 gap-x-3 gap-y-5" [details]="route.details" />
+      </div>
+    </div>
+  }
 </div>

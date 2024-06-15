@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
@@ -8,12 +9,13 @@ import { bikeRouteDetailsConfig } from '../../configs';
 @Component({
   selector: 'app-bike-route-details',
   standalone: true,
-  imports: [MatIcon],
+  imports: [MatIcon, NgClass],
   templateUrl: './bike-route-details.component.html',
   styleUrl: './bike-route-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BikeRouteDetailsComponent {
+  panelClass = input<string>('');
   details = input.required<BikeRouteDetails[], BikeRouteDetailsResponse[]>({
     transform: details =>
       bikeRouteDetailsConfig.map(data => {

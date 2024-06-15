@@ -1,0 +1,34 @@
+<button mat-button (click)="back()">
+  <mat-icon fontIcon="keyboard_arrow_left" />
+  Trasy
+</button>
+
+@if (bikeRouteItem(); as item) {
+  <div class="mt-3 flex gap-5">
+    <img class="h-[500px] max-w-[500px]" alt="route" width="999" height="999" priority [ngSrc]="item.map" />
+
+    <div>
+      <h3 class="mb-5 text-2xl font-bold">{{ item.title }}</h3>
+
+      <app-bike-route-details panelClass="grid grid-cols-2 gap-5" [details]="item.details" />
+    </div>
+  </div>
+
+  <div class="pt-5">
+    @for (des of item.description; track des) {
+      @if (des.title; as title) {
+        <h3 class="mt-8 text-4xl font-bold">{{ title }}</h3>
+      }
+
+      @if (des.subtitle; as subtitle) {
+        <h4 class="mt-5 text-justify text-lg font-semibold">{{ subtitle }}</h4>
+      }
+
+      <p class="mt-5 text-justify text-lg/6">{{ des.description }}</p>
+
+      @if (des.img; as img) {
+        <img class="my-8" alt="description img" height="999" width="999" [ngSrc]="img" />
+      }
+    }
+  </div>
+}

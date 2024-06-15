@@ -1,4 +1,4 @@
-<div class="grid w-full grid-cols-4 gap-x-3 gap-y-5">
+<div class="w-full" [ngClass]="panelClass()">
   @for (detail of details(); track detail.type) {
     <div class="flex gap-2">
       <mat-icon class="text-warn-darker" [fontIcon]="detail.icon" />

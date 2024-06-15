@@ -1,10 +1,10 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption, MatSelect } from '@angular/material/select';
+import { ActivatedRoute, Router } from '@angular/router';
 import { provideComponentStore } from '@ngrx/component-store';
 
 import { BIKE_TYPE_OPTIONS_MAP } from '@map/bike-type-options.map';
@@ -18,7 +18,7 @@ import {
 import { ValueOf } from '@shared/types/value-of.type';
 
 import { BikeRouteDetailsComponent } from '../bike-route-details/bike-route-details.component';
-import { BikeRouteDetailsComponentStore } from './bike-routes.store';
+import { BikeRoutesComponentStore } from './bike-routes.store';
 
 @Component({
   selector: 'app-bike-routes',
@@ -36,12 +36,14 @@ import { BikeRouteDetailsComponentStore } from './bike-routes.store';
   templateUrl: './bike-routes.component.html',
   styleUrl: './bike-routes.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideComponentStore(BikeRouteDetailsComponentStore)],
+  providers: [provideComponentStore(BikeRoutesComponentStore)],
 })
 export class BikeRoutesComponent {
-  #componentStore = inject(BikeRouteDetailsComponentStore);
+  #componentStore = inject(BikeRoutesComponentStore);
+  #router = inject(Router);
+  #route = inject(ActivatedRoute);
 
-  bikeRoutes = toSignal(this.#componentStore.data$);
+  bikeRoutes = this.#componentStore.dataSignal;
 
   regionSelect = regionSelectOptionsConfig;
   bikeType = bikeTypeSelectOptionsConfig;
@@ -54,5 +56,9 @@ export class BikeRoutesComponent {
 
   filter(): void {
     console.log(this.form.getRawValue());
+  }
+
+  goToItem(id: string): void {
+    this.#router.navigate([id], { relativeTo: this.#route });
   }
 }
