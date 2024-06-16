@@ -11,7 +11,7 @@
     <h2 class="mb-8 text-3xl font-bold uppercase">Najnowsze wpisy</h2>
 
     <div class="grid grid-cols-4 gap-7 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
-      @for (post of posts; track post) {
+      @for (post of posts(); track post) {
         <a class="cursor-pointer" (click)="goToBlogItem(post.id)">
           <app-post-container [postType]="post.type" [post]="post" />
         </a>
@@ -26,26 +26,16 @@
   <div>
     <h2 class="mb-8 text-3xl font-bold uppercase">O mnie</h2>
 
-    <div class="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
-      <div>
-        <img
-          ngSrc="https://images.pexels.com/photos/163491/bike-mountain-mountain-biking-trail-163491.jpeg"
-          width="999"
-          height="999"
-          priority
-          alt="Moje zdjęcie z rowerem" />
-      </div>
+    @if (dashboardData(); as data) {
+      <div class="grid grid-cols-2 gap-5 max-sm:grid-cols-1">
+        <div>
+          <img width="999" height="999" priority alt="Moje zdjęcie z rowerem" [ngSrc]="data.img" />
+        </div>
 
-      <div class="px-3 max-sm:mt-3 max-sm:px-0">
-        <p class="text-justify">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-          PageMaker including versions of Lorem Ipsum.
-        </p>
+        <div class="px-3 max-sm:mt-3 max-sm:px-0">
+          <p class="text-justify">{{ data.description }}</p>
+        </div>
       </div>
-    </div>
+    }
   </div>
 </section>

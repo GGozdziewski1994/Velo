@@ -2,9 +2,10 @@ import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
+import { provideComponentStore } from '@ngrx/component-store';
 
 import { PostContainerComponent } from '@pages/blog/components/post-container/post-container.component';
-import { posts } from '@shared/configs';
+import { DashboardComponentStore } from '@pages/dashboard/components/dashboard/dashboard.store';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,18 +14,21 @@ import { posts } from '@shared/configs';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideComponentStore(DashboardComponentStore)],
 })
 export class DashboardComponent {
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
+  #componentStore = inject(DashboardComponentStore);
+  #router = inject(Router);
+  #route = inject(ActivatedRoute);
 
-  protected posts = posts;
+  dashboardData = this.#componentStore.dashboardDataSignal;
+  posts = this.#componentStore.postsSignal;
 
   goToBlog(): void {
-    this.router.navigate(['../blog'], { relativeTo: this.route });
+    this.#router.navigate(['../blog'], { relativeTo: this.#route });
   }
 
   goToBlogItem(id: string): void {
-    this.router.navigate(['../blog', id], { relativeTo: this.route });
+    this.#router.navigate(['../blog', id], { relativeTo: this.#route });
   }
 }

@@ -6,7 +6,7 @@ import { Events } from '@models/events.interface';
 
 @Injectable({ providedIn: 'root' })
 export class EventsService {
-  #httpClient = inject(HttpClient);
+  #http = inject(HttpClient);
 
   getCalendarData(month: number, year: number): Observable<{ events: Events[] }> {
     const fakeData = [

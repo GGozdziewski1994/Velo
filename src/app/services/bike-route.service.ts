@@ -6,7 +6,7 @@ import { BikeRouteItemResponse, BikeRoutesResponse } from '@models/bike-routes.i
 
 @Injectable({ providedIn: 'root' })
 export class BikeRouteService {
-  #httpClient = inject(HttpClient);
+  #http = inject(HttpClient);
 
   getAllBikeRoutes(): Observable<BikeRoutesResponse[]> {
     return of([
