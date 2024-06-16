@@ -11,7 +11,7 @@
 
   <div class="grid grid-flow-row p-4 text-accent">
     <div class="mb-3 flex text-accent-darker">
-      <p class="text-xs">{{ post().date }}</p>
+      <p class="text-xs">{{ post().date | date: dateFormat }}</p>
     </div>
 
     <h3 class="mb-5 text-lg font-bold">{{ post().title }}</h3>

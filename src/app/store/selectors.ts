@@ -58,3 +58,5 @@ export const selectVmForCalendar = createSelector(
     isDateParamValid,
   })
 );
+
+export const selectBlogType = createSelector(reducerFeature.selectBlogType, type => type);

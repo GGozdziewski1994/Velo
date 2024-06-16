@@ -12,3 +12,18 @@ export interface Post {
   model?: string;
   text?: string;
 }
+
+export interface PostItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  backgroundImage: string;
+  description: PostDescription[];
+}
+
+export interface PostDescription {
+  title?: string;
+  description: string;
+  img?: string;
+}

@@ -1,42 +1,33 @@
-<div
-  class="relative ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] h-[calc(100vh-65px)] w-[calc(100vw-4px)] bg-[url('https://media.istockphoto.com/id/1402134796/pl/zdj%C4%99cie/sylwetka-rowerzysty-o-zachodzie-s%C5%82o%C5%84ca.jpg?s=2048x2048&w=is&k=20&c=6ZGAo5IymMQ2ddWpnAz2x2ue94H1vGp2SuhY6Eo4mtc=')] bg-cover bg-center">
-  <div class="mx-auto flex max-w-container flex-col px-8 text-accent-lighter">
-    <h2 class="pt-32 text-center text-6xl font-semibold uppercase">Trasa Jezior w Szwajcarii</h2>
-    <div class="mt-8 flex justify-center gap-5">
-      <p class="text-lg">24 kwietnia 2024</p>
-      <p class="text-lg">24 kwietnia 2024</p>
-    </div>
-  </div>
-</div>
+@if (post(); as post) {
+  <div
+    class="relative ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] h-[calc(100vh-65px)] w-[calc(100vw-4px)] bg-cover bg-center"
+    [ngStyle]="{ 'background-image': 'url(' + post.backgroundImage + ')' }">
+    <div class="mx-auto flex max-w-container flex-col px-8 text-accent-lighter">
+      <h2 class="pt-32 text-center text-6xl font-semibold uppercase">{{ post.title }}</h2>
 
-<div class="mx-auto max-w-container px-8 py-16 text-primary-darker">
-  <p class="mb-10 text-justify text-lg font-semibold">
-    Introduction - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-    to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-    typesetting, remaining essentially unchanged.
-  </p>
-
-  @for (post of [1, 1, 1, 1, 1]; track post) {
-    <div class="mb-10">
-      <h3 class="mb-5 text-5xl font-bold uppercase">Sub header</h3>
-
-      <p class="text-justify text-lg/6">
-        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
-        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
-        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
-        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like).
-      </p>
-
-      <div class="mt-5">
-        <img
-          ngSrc="https://media.istockphoto.com/id/1402134796/pl/zdj%C4%99cie/sylwetka-rowerzysty-o-zachodzie-s%C5%82o%C5%84ca.jpg?s=2048x2048&w=is&k=20&c=6ZGAo5IymMQ2ddWpnAz2x2ue94H1vGp2SuhY6Eo4mtc="
-          height="999"
-          width="999"
-          alt="" />
+      <div class="mt-8 flex justify-center gap-5">
+        <p class="text-lg">{{ post.date | date: dateFormat }}</p>
       </div>
     </div>
-  }
-</div>
+  </div>
+
+  <div class="mx-auto max-w-container px-8 py-16 text-primary-darker">
+    <p class="mb-10 text-justify text-lg font-semibold">{{ post.subtitle }}</p>
+
+    @for (des of post.description; track des) {
+      <div class="mb-10">
+        @if (des.title; as title) {
+          <h3 class="mb-5 text-5xl font-bold uppercase">{{ title }}</h3>
+        }
+
+        <p class="text-justify text-lg/6">{{ des.description }}</p>
+
+        @if (des.img; as img) {
+          <div class="mt-5">
+            <img height="999" width="999" alt="" [ngSrc]="img" />
+          </div>
+        }
+      </div>
+    }
+  </div>
+}
