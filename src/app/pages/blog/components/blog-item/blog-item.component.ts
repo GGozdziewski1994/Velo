@@ -1,6 +1,5 @@
 import { DatePipe, NgOptimizedImage, NgStyle } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { provideComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 
@@ -22,7 +21,7 @@ export class BlogItemComponent implements OnInit {
   #componentStore = inject(BlogItemComponentStore);
   #store = inject(Store);
 
-  routeId = toSignal(this.#store.select(selectRouteParam('id')));
+  routeId = this.#store.selectSignal(selectRouteParam('id'));
   post = this.#componentStore.postSignal;
 
   dateFormat = POST_DATE_FORMAT;
