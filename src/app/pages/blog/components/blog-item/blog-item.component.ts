@@ -1,5 +1,5 @@
 import { DatePipe, NgOptimizedImage, NgStyle } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, untracked } from '@angular/core';
 import { provideComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 
@@ -17,16 +17,20 @@ import { BlogItemComponentStore } from './blog-item.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideComponentStore(BlogItemComponentStore)],
 })
-export class BlogItemComponent implements OnInit {
+export class BlogItemComponent {
   #componentStore = inject(BlogItemComponentStore);
   #store = inject(Store);
 
   routeId = this.#store.selectSignal(selectRouteParam('id'));
   post = this.#componentStore.postSignal;
 
-  dateFormat = POST_DATE_FORMAT;
+  initFlowEffect = effect(() => {
+    const id = this.routeId() as string;
 
-  ngOnInit(): void {
-    this.#componentStore.getPost({ id: this.routeId() as string });
-  }
+    untracked(() => {
+      this.#componentStore.getPost({ id });
+    });
+  });
+
+  dateFormat = POST_DATE_FORMAT;
 }

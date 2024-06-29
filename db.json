@@ -121,6 +121,7 @@
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
     }
   ],
+
   "post": [
     {
       "id": "post1",
@@ -231,10 +232,207 @@
       ]
     }
   ],
+
   "dashboard": {
     "id": "1",
     "img": "https://images.pexels.com/photos/163491/bike-mountain-mountain-biking-trail-163491.jpeg",
     "description":
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it tomake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  }
+  },
+
+  "bike-routes": [
+    {
+      "id": "1",
+      "map": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Trasa wokół Poznania",
+      "details": [
+        {
+          "type": "bikeType",
+          "value": "Gravel, Trekking"
+        },
+        {
+          "type": "region",
+          "value": "Wielkopolska"
+        },
+        {
+          "type": "time",
+          "value": "2h"
+        },
+        {
+          "type": "distance",
+          "value": "50 km"
+        },
+        {
+          "type": "level",
+          "value": "Średnia"
+        },
+        {
+          "type": "family",
+          "value": false
+        },
+        {
+          "type": "routeType",
+          "value": "Szlak"
+        },
+        {
+          "type": "laps",
+          "value": false
+        },
+        {
+          "type": "road",
+          "value": "Szuter 80%, Asfalt 20%"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "map": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Velo Dunajec",
+      "details": [
+        {
+          "type": "bikeType",
+          "value": "Gravel, Szosa, Trekking"
+        },
+        {
+          "type": "region",
+          "value": "Małopolska"
+        },
+        {
+          "type": "time",
+          "value": "7h"
+        },
+        {
+          "type": "distance",
+          "value": "250 km"
+        },
+        {
+          "type": "level",
+          "value": "Średnia"
+        },
+        {
+          "type": "family",
+          "value": true
+        },
+        {
+          "type": "routeType",
+          "value": "Trasa"
+        },
+        {
+          "type": "laps",
+          "value": true
+        },
+        {
+          "type": "road",
+          "value": "Asfalt 90%, Szuter 10%"
+        }
+      ]
+    }
+  ],
+
+  "bike-route": [
+    {
+      "id": "1",
+      "map": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Velo Dunajec",
+      "details": [
+        {
+          "type": "bikeType",
+          "value": "Gravel, Szosa, Trekking"
+        },
+        {
+          "type": "region",
+          "value": "Małopolska"
+        },
+        {
+          "type": "time",
+          "value": "7h"
+        },
+        {
+          "type": "distance",
+          "value": "250 km"
+        },
+        {
+          "type": "level",
+          "value": "Średnia"
+        },
+        {
+          "type": "family",
+          "value": true
+        },
+        {
+          "type": "routeType",
+          "value": "Trasa"
+        },
+        {
+          "type": "laps",
+          "value": true
+        },
+        {
+          "type": "road",
+          "value": "Asfalt 90%, Szuter 10%"
+        }
+      ],
+      "description": [
+        {
+          "title": "Title",
+          "subtitle":
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here",
+          "img": "https://media.istockphoto.com/id/1402134796/pl/zdj%C4%99cie/sylwetka-rowerzysty-o-zachodzie-s%C5%82o%C5%84ca.jpg?s=2048x2048&w=is&k=20&c=6ZGAo5IymMQ2ddWpnAz2x2ue94H1vGp2SuhY6Eo4mtc=",
+          "description":
+          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+        },
+        {
+          "subtitle":
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here",
+          "description":
+          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+        },
+        {
+          "description":
+          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+        },
+        {
+          "title": "Title",
+          "img": "https://media.istockphoto.com/id/1402134796/pl/zdj%C4%99cie/sylwetka-rowerzysty-o-zachodzie-s%C5%82o%C5%84ca.jpg?s=2048x2048&w=is&k=20&c=6ZGAo5IymMQ2ddWpnAz2x2ue94H1vGp2SuhY6Eo4mtc=",
+          "description":
+          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+        }
+      ]
+    }
+  ],
+
+  "events": [
+    {
+      "id": "1",
+      "month": 6,
+      "year": 2024,
+      "events": [
+        {
+          "id": "346346",
+          "eventDay": 28,
+          "eventMonth": 6,
+          "eventYear": 2024,
+          "image":
+          "https://img1.wsimg.com/isteam/ip/f61dd058-d039-4339-8730-b7b97d988d6d/Warta%20Gravel%20HS.png/:/rs=h:200,cg:true,m/qt=q:100/ll",
+          "linkPage": "https://wartagravel.com/"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "month": 7,
+      "year": 2024,
+      "events": [
+        {
+          "id": "346347356",
+          "eventDay": 8,
+          "eventMonth": 7,
+          "eventYear": 2024,
+          "image":
+          "https://img1.wsimg.com/isteam/ip/f61dd058-d039-4339-8730-b7b97d988d6d/Warta%20Gravel%20HS.png/:/rs=h:200,cg:true,m/qt=q:100/ll",
+          "linkPage": "https://wartagravel.com/"
+        }
+      ]
+    }
+  ]
 }

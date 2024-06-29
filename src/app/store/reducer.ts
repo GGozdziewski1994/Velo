@@ -47,7 +47,7 @@ const reducer = createReducer(
     storeAppActions.getEventsSuccess,
     (state, { events }): State => ({
       ...state,
-      calendarData: { events },
+      calendarData: { events: events[0]?.events ?? [] },
       isLoading: false,
     })
   ),

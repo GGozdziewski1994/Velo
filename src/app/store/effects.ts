@@ -48,7 +48,7 @@ export class Effects {
       ofType(storeAppActions.getEvents),
       switchMap(({ month, year }) =>
         this.#eventService.getCalendarData(month, year).pipe(
-          map(events => storeAppActions.getEventsSuccess(events)),
+          map(events => storeAppActions.getEventsSuccess({ events })),
           catchError(error => of(storeAppActions.getEventsFailure({ error })))
         )
       )

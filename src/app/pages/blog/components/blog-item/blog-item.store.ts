@@ -11,7 +11,7 @@ export class BlogItemComponentStore extends ComponentStore<{ post: PostItem | nu
 
   readonly postSignal = this.selectSignal(state => state.post);
 
-  readonly getPost = this.effect<{ id?: string }>(trigger$ =>
+  readonly getPost = this.effect<{ id: string }>(trigger$ =>
     trigger$.pipe(
       switchMap(({ id }) =>
         this.#service.getPost(id as string).pipe(
