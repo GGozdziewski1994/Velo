@@ -1,4 +1,4 @@
-# Frontend
+# Bicycle blog
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
@@ -6,22 +6,39 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## My cycling passion
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project is not finished yet and all data is default !
 
-## Running end-to-end tests
+The website will contain entries from bicycle trips, reviews and posts about bicycles.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+It will be possible to view bicycle routes in detail, where the user will be able to filter them.
 
-## Further help
+Additionally, there will be a calendar with various cycling events.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+There will also be a forum on the website where logged-in users will be able to add topics, comment and rate whether a given entry was helpful to them.
+
+## Project
+
+Ultimately, the project will also have a backend written in nest.js.
+The project will have user login and registration.
+
+As an administrator, you will be able to add entries, edit routes or add events to the calendar, all from the application level.
+
+### Technologies currently used
+
+Angular, Angular Material, Rxjs, Ngrx, Tailwindcss, Scss, Luxon, Lodash
+
+### Store
+
+I use, among others, effects, router-store, component-store
+
+## App appearance
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
