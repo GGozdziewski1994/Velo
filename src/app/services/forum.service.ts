@@ -18,7 +18,7 @@ export class ForumService {
   }
 
   getEntry(id: string): Observable<EntryResponse> {
-    return this.#http.get<EntryResponse>(`${this.api}/entries/${id}`);
+    return this.#http.get<EntryResponse>(`${this.api}/entry/${id}`);
   }
 
   getDotTypes(): Observable<EntriesDotTypesResponse[]> {
