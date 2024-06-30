@@ -1,36 +1,52 @@
-import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit, effect, inject, signal, untracked } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { MenuPanelComponent } from '@components/menu-panel';
+import { baseTypesConfig } from '@pages/forum/components/config/base-types.config';
+import { storeAppActions } from '@store/actions';
+import { selectForumEntriesDotTypes } from '@store/selectors';
 
 @Component({
   selector: 'app-forum-shell',
   standalone: true,
-  imports: [MenuPanelComponent, RouterOutlet],
-  template: ` <app-menu-panel [dotItems]="dotTypes" [iconItems]="iconsTypes" [(selectedItem)]="selectType">
+  imports: [MenuPanelComponent, RouterOutlet, AsyncPipe],
+  template: ` <app-menu-panel
+    [dotItems]="(dotTypes$ | async) || []"
+    [iconItems]="baseTypes"
+    [(selectedItem)]="selectType">
     <router-outlet />
   </app-menu-panel>`,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ForumShellComponent {
-  protected selectType = signal<'all' | 'following' | string>('all');
+export class ForumShellComponent implements OnInit {
+  #store = inject(Store);
 
-  protected iconsTypes = [
-    { label: 'Wszystkie wpisy', type: 'all', icon: 'forum' },
-    { label: 'Obserwowane', type: 'following', icon: 'star' },
-  ];
+  selectType = signal<'following' | string>('');
+  initFlowEffect = effect(() => {
+    const selectedType = this.selectType();
+    console.log(selectedType);
 
-  protected dotTypes = [
-    { label: 'Najlepsze trasy', type: 'routes', dotBackground: '#3339FF' },
-    { label: 'Wymiana hamulców', type: 'breaks', dotBackground: '#80FF33' },
-    { label: 'Dieta', type: 'diet', dotBackground: '#110A03' },
-    { label: 'Odzież', type: 'clothing', dotBackground: '#147E1C' },
-  ];
-
-  constructor() {
-    effect(() => {
-      console.log(this.selectType());
+    untracked(() => {
+      this.#getEntries(selectedType);
     });
+  });
+
+  baseTypes = baseTypesConfig;
+  dotTypes$ = this.#store.select(selectForumEntriesDotTypes);
+
+  ngOnInit(): void {
+    this.#initFlow();
+  }
+
+  #getEntries(selectedType: string): void {
+    this.#store.dispatch(storeAppActions.getEntries({ selectedType }));
+  }
+
+  #initFlow(): void {
+    this.#getEntries(this.selectType());
+    this.#store.dispatch(storeAppActions.getDotTypes());
   }
 }

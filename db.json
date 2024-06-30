@@ -434,5 +434,146 @@
         }
       ]
     }
+  ],
+
+  "entries": [
+    {
+      "id": "123",
+      "type": "routes",
+      "entryId": "entry-123",
+      "userLogo":
+      "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Trasa Poznań (Bułgarska) - Wielkopolski Park Narodowy (Puszczykowo)",
+      "typeEntry": "Najlepsze trasy",
+      "bgType": "#3339FF",
+      "createAt": "2024-05-06T21:10:30.625Z",
+      "createBy": "Grzegorz",
+      "rating": 4.21,
+      "ratedBy": 879,
+      "numberOfComments": 7,
+      "isFallowing": false
+    },
+    {
+      "id": "456",
+      "type": "routes",
+      "entryId": "entry-456",
+      "userLogo":
+      "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Trasa Witankowo - Różewo - Strączno - Wałcz - Witankowo",
+      "typeEntry": "Najlepsze trasy",
+      "bgType": "#3339FF",
+      "createAt": "2024-04-22T20:53:30.625Z",
+      "createBy": "Grzegorz",
+      "rating": 4.72,
+      "ratedBy": 542,
+      "numberOfComments": 3,
+      "isFallowing": true
+    }
+  ],
+
+  "entries-types": [
+    {
+      "label": "Najlepsze trasy",
+      "type": "routes",
+      "dotBackground": "#3339FF"
+    },
+    {
+      "label": "Wymiana hamulców",
+      "type": "breaks",
+      "dotBackground": "#80FF33"
+    },
+    {
+      "label": "Dieta",
+      "type": "diet",
+      "dotBackground": "#110A03"
+    },
+    {
+      "label": "Odzież",
+      "type": "clothing",
+      "dotBackground": "#147E1C"
+    }
+  ],
+
+  "entry": [
+    {
+      "id": "entry-123",
+      "type": "routes",
+      "userLogo":
+      "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Trasa Poznań (Bułgarska) - Wielkopolski Park Narodowy (Puszczykowo)",
+      "typeEntry": "Najlepsze trasy",
+      "bgType": "#3339FF",
+      "createAt": "2024-05-06T21:10:30.625Z",
+      "createBy": "Grzegorz",
+      "rating": 4.21,
+      "ratedBy": 879,
+      "numberOfComments": 7,
+      "isFallowing": false,
+      "userName": "Grzegorz Goździewski",
+      "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "comments": [
+        {
+          "id": "111",
+          "userName": "User Name",
+          "userLogo": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+          "createAt": "2024-06-21T21:10:30.625Z",
+          "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+          "id": "4536",
+          "userName": "User Name 2",
+          "userLogo": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+          "createAt": "2024-06-22T21:10:30.625Z",
+          "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+          "id": "4564",
+          "userName": "User Name 3",
+          "userLogo": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+          "createAt": "2024-06-23T21:10:30.625Z",
+          "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+      ]
+    },
+    {
+      "id": "entry-456",
+      "type": "routes",
+      "userLogo":
+      "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+      "title": "Trasa Witankowo - Różewo - Strączno - Wałcz - Witankowo",
+      "typeEntry": "Najlepsze trasy",
+      "bgType": "#3339FF",
+      "createAt": "2024-04-22T20:53:30.625Z",
+      "createBy": "Grzegorz",
+      "rating": 4.72,
+      "ratedBy": 542,
+      "numberOfComments": 3,
+      "isFallowing": true,
+      "userName": "Grzegorz Goździewski 2",
+      "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "comments": [
+        {
+          "id": "111",
+          "userName": "User Name",
+          "userLogo": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+          "createAt": "2024-05-23T21:10:30.625Z",
+          "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+          "id": "4536",
+          "userName": "User Name 2",
+          "userLogo": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+          "createAt": "2024-05-25T21:10:30.625Z",
+          "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        },
+        {
+          "id": "4564",
+          "userName": "User Name 3",
+          "userLogo": "https://media.istockphoto.com/id/1450333869/pl/zdj%C4%99cie/fitness-sportowiec-i-rowerzysta-z-rowerem-na-g%C3%B3rskiej-drodze-dla-zdrowia-dobrego.jpg?s=2048x2048&w=is&k=20&c=WEu53mI0cOKScsqI30F5y4fL4WuL7XnN8th_-qDsdFA=",
+          "createAt": "2024-05-30T21:10:30.625Z",
+          "entry": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        }
+      ]
+    }
   ]
 }

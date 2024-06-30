@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex min-h-8">
   @if (ratingIsReadonly()) {
     @for (star of stars; track star; let i = $index) {
       <ng-container *ngTemplateOutlet="ratingIcons; context: { star }" />

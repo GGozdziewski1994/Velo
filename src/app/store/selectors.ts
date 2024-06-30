@@ -60,3 +60,7 @@ export const selectVmForCalendar = createSelector(
 );
 
 export const selectBlogType = createSelector(reducerFeature.selectBlogType, type => type);
+
+export const selectForumEntries = createSelector(reducerFeature.selectEntries, entries => entries);
+
+export const selectForumEntriesDotTypes = createSelector(reducerFeature.selectEntriesDotTypes, types => types);

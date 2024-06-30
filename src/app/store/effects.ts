@@ -7,6 +7,7 @@ import { DateTime } from 'luxon';
 import { catchError, filter, map, of, switchMap, tap, withLatestFrom } from 'rxjs';
 
 import { EventsService } from '@services/events.service';
+import { ForumService } from '@services/forum.service';
 import { MENU_PAYLOAD } from '@shared/configs';
 import { reducerFeature } from '@store/reducer';
 import { selectRouteParam } from '@store/router-selectors';
@@ -20,6 +21,7 @@ export class Effects {
   #store = inject(Store);
   #router = inject(Router);
   #route = inject(ActivatedRoute);
+  #entriesService = inject(ForumService);
 
   routerNavigated$ = createEffect(() =>
     this.#actions$.pipe(
@@ -94,5 +96,29 @@ export class Effects {
         })
       ),
     { dispatch: false }
+  );
+
+  getEntries$ = createEffect(() =>
+    this.#actions$.pipe(
+      ofType(storeAppActions.getEntries),
+      switchMap(({ selectedType }) =>
+        this.#entriesService.getEntries(selectedType).pipe(
+          map(entries => storeAppActions.getEntriesSuccess({ entries })),
+          catchError(error => of(storeAppActions.getEntriesFailure({ error })))
+        )
+      )
+    )
+  );
+
+  getEntriesDotTypes$ = createEffect(() =>
+    this.#actions$.pipe(
+      ofType(storeAppActions.getDotTypes),
+      switchMap(() =>
+        this.#entriesService.getDotTypes().pipe(
+          map(types => storeAppActions.getDotTypesSuccess({ types })),
+          catchError(error => of(storeAppActions.getDotTypesFailure({ error })))
+        )
+      )
+    )
   );
 }

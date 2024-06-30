@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-5 text-primary-darker">
-  @for (entry of forumEntry; track entry) {
+  @for (entry of entries$ | async; track entry.id) {
     <div
       class="relative grid grid-cols-8 items-center gap-3 rounded-md border border-accent-darker px-2 py-5 shadow-sm max-md:grid-cols-4">
       <div
@@ -28,7 +28,7 @@
 
       <div class="col-span-2 justify-self-center">
         <p class="mb-1 text-xs">Ten wpis był przydatny:</p>
-        <app-start-rating [averageRating]="entry.rating" [(userRating)]="rating" />
+        <app-start-rating [averageRating]="entry.rating" />
         <p class="mt-0.5 text-xs">
           Średnia <span class="font-bold">{{ entry.rating }}</span> na podstawie
           <span class="font-bold"> {{ entry.ratedBy }}</span> ocen
